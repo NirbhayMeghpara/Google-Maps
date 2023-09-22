@@ -4,10 +4,10 @@ const searchBtn = document.querySelector('#search');
 const startJourneyButton = document.querySelector('#startJourney');
 
 startJourneyButton.addEventListener('click', () => {
+  pickUpInput.value = ''
+  dropOffInput.value = ''
   pickUpInput.focus();
 });
-
-
 
 // Creating Google map
 
@@ -54,14 +54,12 @@ async function initMap() {
   let autocompletePickUp = new google.maps.places.Autocomplete(pickUpInput)
   let autocompleteDropOff = new google.maps.places.Autocomplete(dropOffInput)
 
-
   directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer({
     polylineOptions: {
       strokeWeight: 3       // Thickness of the route line
     }
   });
-
 }
 
 searchBtn.addEventListener('click', calculateRoute)
